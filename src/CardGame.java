@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CardGame {
     private final ArrayList<Card> deckOfCards; // populated when game is constructed
@@ -37,5 +39,9 @@ public class CardGame {
             return null; // Return null if the deck is empty
         }
         return deckOfCards.removeFirst(); // Remove and return the top card
+    }
+
+    public void sortDeckInNumberOrder() {
+        deckOfCards.sort(Comparator.comparing(Card::getValue));
     }
 }

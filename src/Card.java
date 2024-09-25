@@ -17,18 +17,6 @@ public class Card {
         return symbol + " of " + suit;
     }
 
-//    public String getSuit() {
-//        return suit;
-//    }
-//
-//    public String getSymbol() {
-//        return symbol;
-//    }
-//
-//    public int getValue() {
-//        return value;
-//    }
-
     public static String[] getSuits() {
         return SUITS;
     }
@@ -40,4 +28,10 @@ public class Card {
     public static int[] getValues() {
         return VALUES;
     }
+
+    public int getValue() {
+        return value;
+    }
+
+
 }

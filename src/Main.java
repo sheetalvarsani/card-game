@@ -16,5 +16,11 @@ public class Main {
         // Display the deck after dealing one card
         System.out.println("\nDeck of Cards after dealing one card:");
         game.displayDeck();
+
+        game.sortDeckInNumberOrder();
+
+        // Display the sorted deck
+        System.out.println("\nSorted Deck by Number Order:");
+        game.displayDeck();
     }
 }
