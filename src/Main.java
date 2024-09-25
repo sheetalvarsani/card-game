@@ -28,5 +28,11 @@ public class Main {
         // Display the sorted deck
         System.out.println("\nSorted Deck Into Suits:");
         game.displayDeck();
+
+        game.shuffleDeck();
+
+        // Display the sorted deck
+        System.out.println("\nShuffled deck:");
+        game.displayDeck();
     }
 }

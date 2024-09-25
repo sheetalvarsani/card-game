@@ -48,4 +48,8 @@ public class CardGame {
     public void sortDeckIntoSuits() {
         deckOfCards.sort(Comparator.comparing(Card::getSuit));
     }
+
+    public void shuffleDeck() {
+        Collections.shuffle(deckOfCards);
+    }
 }
