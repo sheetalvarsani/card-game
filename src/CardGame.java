@@ -44,4 +44,8 @@ public class CardGame {
     public void sortDeckInNumberOrder() {
         deckOfCards.sort(Comparator.comparing(Card::getValue));
     }
+
+    public void sortDeckIntoSuits() {
+        deckOfCards.sort(Comparator.comparing(Card::getSuit));
+    }
 }

@@ -21,6 +21,10 @@ public class Card {
         return SUITS;
     }
 
+    public String getSuit() {
+        return suit;
+    }
+
     public static String[] getSymbols() {
         return SYMBOLS;
     }
