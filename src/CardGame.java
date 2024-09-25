@@ -30,4 +30,12 @@ public class CardGame {
     public String getName() {
         return name;
     }
+
+    public Card dealCard() {
+        if (deckOfCards.isEmpty()) {
+            System.out.println("No cards left in the deck!");
+            return null; // Return null if the deck is empty
+        }
+        return deckOfCards.removeFirst(); // Remove and return the top card
+    }
 }
