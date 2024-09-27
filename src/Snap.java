@@ -11,12 +11,18 @@ public class Snap extends CardGame{
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            // Wait for user to press enter to deal the next card
+
             scanner.nextLine();
 
             Card currentCard = dealCard();
 
+            if(currentCard == null) {
+                System.out.println("Game Over!");
+                break;
+            }
+
             System.out.println("Dealt card: " + currentCard);
         }
+        scanner.close();
     }
 }
