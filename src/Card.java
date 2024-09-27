@@ -1,3 +1,5 @@
+import java.util.Currency;
+
 public class Card {
     private final String suit;
     private final String symbol;
@@ -7,14 +9,14 @@ public class Card {
     private static final String[] SYMBOLS = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
     private static final int[] VALUES = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
 
-        public Card(String suit, String symbol, int value) {
+    public Card(String suit, String symbol, int value) {
             this.suit = suit;
             this.symbol = symbol;
             this.value = value;
         }
 
     public String toString() {
-        return symbol + " of " + suit;
+        return symbol + " " + suit;
     }
 
     public static String[] getSuits() {
@@ -35,6 +37,10 @@ public class Card {
 
     public int getValue() {
         return value;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 
 
