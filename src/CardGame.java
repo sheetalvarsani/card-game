@@ -14,21 +14,20 @@ public class CardGame {
     }
 
     void getDeck() {
-        for (String suit : Card.getSuits()) { // get suits through the getter
-            for (int i = 0; i < Card.getSymbols().length; i++) { // get symbols through the getter
-                deckOfCards.add(new Card(suit, Card.getSymbols()[i], Card.getValues()[i])); // Add card to deck
+        for (Suit suit : Suit.values()) {
+            for (Symbol symbol : Symbol.values()) {
+                Value value = Value.valueOf(symbol.name());
+                deckOfCards.add(new Card(suit, symbol, value));
             }
         }
     }
 
-    // Display the deck of cards
-    public void displayDeck() {
-        for (Card card : deckOfCards) {
-            System.out.println(card);
-        }
-    }
+//    public void displayDeck() {
+//        for (Card card : deckOfCards) {
+//            System.out.println(card);
+//        }
+//    }
 
-    // Get name of the card game
     public String getName() {
         return name;
     }
