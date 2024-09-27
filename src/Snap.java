@@ -5,6 +5,8 @@ public class Snap extends CardGame{
         super(name);
     }
 
+    private final Card previousCard = null;
+
     public void playSnap() {
         System.out.println("Let's play Snap! \nPress Enter to deal a card.");
 
@@ -22,6 +24,11 @@ public class Snap extends CardGame{
             }
 
             System.out.println(currentCard);
+
+            if (previousCard != null && currentCard.getSymbol().equals(previousCard.getSymbol())) {
+                System.out.println("SNAP!");
+                break;
+            }
         }
         scanner.close();
     }
