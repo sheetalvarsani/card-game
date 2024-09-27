@@ -14,7 +14,7 @@ public class Card {
         }
 
     public String toString() {
-        return symbol + " of " + suit;
+        return symbol + " " + suit;
     }
 
     public static String[] getSuits() {

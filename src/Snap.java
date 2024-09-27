@@ -6,7 +6,7 @@ public class Snap extends CardGame{
     }
 
     public void playSnap() {
-        System.out.println("Let's play Snap! Press Enter to deal a card.");
+        System.out.println("Let's play Snap! \nPress Enter to deal a card.");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -21,7 +21,7 @@ public class Snap extends CardGame{
                 break;
             }
 
-            System.out.println("Dealt card: " + currentCard);
+            System.out.println(currentCard);
         }
         scanner.close();
     }
