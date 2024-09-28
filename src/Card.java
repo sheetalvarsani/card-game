@@ -1,3 +1,7 @@
+import enums.Suit;
+import enums.Symbol;
+import enums.Value;
+
 public class Card {
     private final Suit suit;
     private final Symbol symbol;

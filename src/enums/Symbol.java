@@ -1,3 +1,5 @@
+package enums;
+
 public enum Symbol {
     TWO("2"),
     THREE("3"),

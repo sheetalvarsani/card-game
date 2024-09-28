@@ -6,29 +6,39 @@ public class Main {
         boolean gameRunning = true;
 
         while (gameRunning) {
-            System.out.println("\nWelcome to Card Game! Choose a GAME below:");
-            System.out.println("1. Play SNAP");
-            System.out.println("2. EXIT");
-            System.out.print("\nEnter your choice: ");
-
+            displayMenu();
             String choice = scanner.nextLine();
-
-            switch (choice) {
-                case "1":
-                    Snap snapGame = new Snap("Snap", "Player 1", "Player 2");
-                    snapGame.playSnap();
-                    break;
-
-                case "2":
-                    System.out.println("\nThanks for playing! Goodbye!");
-                    gameRunning = false;
-                    break;
-
-                default:
-                    System.out.println("Please enter '1' to PLAY SNAP or '2' to EXIT.");
-                    break;
-            }
+            gameRunning = handleChoice(choice);
         }
         scanner.close();
+    }
+
+    private static void displayMenu() {
+        System.out.println("\nWelcome to Card Game! Choose a GAME below:\n");
+        System.out.println("1. Play: SNAP");
+        System.out.println("2. Play: HIGHER LOWER");
+        System.out.println("3. EXIT");
+        System.out.print("\nEnter your choice: ");
+    }
+
+    private static boolean handleChoice(String choice) {
+        return switch (choice) {
+            case "1" -> {
+                new Snap("Snap", "Player 1", "Player 2").playSnap();
+                yield true;
+            }
+            case "2" -> {
+                new HigherLower("Higher Lower").playHigherLower();
+                yield true;
+            }
+            case "3" -> {
+                System.out.println("\nThanks for playing! Goodbye!");
+                yield false;
+            }
+            default -> {
+                System.out.println("Please enter '1', '2', or '3'");
+                yield true;
+            }
+        };
     }
 }

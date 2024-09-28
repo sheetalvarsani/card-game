@@ -1,8 +1,10 @@
+package enums;
+
 public enum Suit {
-    HEARTS("♥"),
-    DIAMONDS("♦"),
-    CLUBS("♣"),
-    SPADES("♠");
+    HEARTS("\u2665"),
+    DIAMONDS("\u2666"),
+    CLUBS("\u2663"),
+    SPADES("\u2660");
 
     private final String symbol;
 
