@@ -54,28 +54,4 @@ public class Snap extends CardGame {
             playAgain = showMenu(scanner);
         }
     }
-
-    private boolean showMenu(Scanner scanner) {
-        System.out.println("\nChoose what to do next:");
-        System.out.println("1. Play Again");
-        System.out.println("2. Choose Another Game");
-        System.out.println("3. EXIT");
-        System.out.print("\nEnter your choice: ");
-
-        while (true) {
-            String choice = scanner.nextLine();
-            switch (choice) {
-                case "1":
-                    return true;
-                case "2":
-                    System.out.println("\nThanks for playing SNAP!");
-                    return false;
-                case "3":
-                    System.out.println("\nThanks for playing SNAP! BYE!");
-                    System.exit(0);
-                default:
-                    System.out.print("Enter a valid choice (1 / 2 / 3): ");
-            }
-        }
-    }
 }
