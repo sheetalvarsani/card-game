@@ -16,6 +16,7 @@ public class HigherLower extends CardGame {
             getDeck();
             shuffleDeck();
             previousCard = dealCard();
+            int score = 0;
 
             System.out.println("\nIn this game, you must guess whether the next card dealt will be HIGHER or LOWER than the previous...");
             System.out.println("\nLet's play Higher Lower! (Press Q to QUIT)");
@@ -56,11 +57,15 @@ public class HigherLower extends CardGame {
                 if (isCorrect) {
                     System.out.println("\nCORRECT!");
                     previousCard = currentCard;
+                    score++;
                 } else {
                     System.out.println("\nINCORRECT: GAME OVER!");
                     break;
                 }
             }
+
+            System.out.println("\nYour score: " + score);
+
             playAgain = showMenu(scanner);
         }
     }
