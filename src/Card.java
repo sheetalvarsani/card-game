@@ -1,47 +1,28 @@
-import java.util.Currency;
-
 public class Card {
-    private final String suit;
-    private final String symbol;
-    private final int value;
+    private final Suit suit;
+    private final Symbol symbol;
+    private final Value value;
 
-    private static final String[] SUITS = {"\u2665", "\u2666", "\u2663", "\u2660"};
-    private static final String[] SYMBOLS = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-    private static final int[] VALUES = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
-
-    public Card(String suit, String symbol, int value) {
-            this.suit = suit;
-            this.symbol = symbol;
-            this.value = value;
-        }
+    public Card(Suit suit, Symbol symbol, Value value) {
+        this.suit = suit;
+        this.symbol = symbol;
+        this.value = value;
+    }
 
     public String toString() {
         return symbol + " " + suit;
     }
 
-    public static String[] getSuits() {
-        return SUITS;
-    }
-
-    public String getSuit() {
+    public Suit getSuit() {
         return suit;
     }
 
-    public static String[] getSymbols() {
-        return SYMBOLS;
-    }
-
-    public static int[] getValues() {
-        return VALUES;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public String getSymbol() {
+    public Symbol getSymbol() {
         return symbol;
     }
 
+    public Value getValue() {
+        return value;
+    }
 
 }
