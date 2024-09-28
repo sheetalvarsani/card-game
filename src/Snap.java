@@ -23,7 +23,7 @@ public class Snap extends CardGame {
             previousCard = null;
             currentPlayer = player1;
 
-            System.out.println("Let's play SNAP! \nPress Enter to deal a card.");
+            System.out.println("\nLet's play SNAP! \n\nPress Enter to deal a card. \nPlayer 1 goes first:");
 
             while (true) {
                 scanner.nextLine();
@@ -47,7 +47,11 @@ public class Snap extends CardGame {
                 currentPlayer = (currentPlayer == player1) ? player2 : player1;
             }
 
-            System.out.println("\nEnter '1' to PLAY AGAIN or '2' to EXIT:");
+            System.out.println("\nChoose what to do next:");
+            System.out.println("1. Play Again");
+            System.out.println("2. Back to Main Menu"); // change to choose another game when additional game added
+            System.out.println("3. EXIT");
+            System.out.print("\nEnter your choice: ");
 
             while (true) {
                 String choice = scanner.nextLine();
@@ -56,13 +60,16 @@ public class Snap extends CardGame {
                     break;
                 } else if (choice.equals("2")) {
                     playAgain = false;
-                    System.out.println("Thanks for playing! BYE!");
+                    System.out.println("\nThanks for playing SNAP!");
                     break;
+                } else if (choice.equals("3")) {
+                    playAgain = false;
+                    System.out.println("\nThanks for playing SNAP! BYE!");
+                    System.exit(0);
                 } else {
-                    System.out.println("Please enter '1' to PLAY AGAIN or '2' to EXIT:");
+                    System.out.println("\nPlease enter '1' to PLAY AGAIN, '2' to go BACK TO MAIN MENU or '3' to EXIT:");
                 }
             }
         }
-        scanner.close();
     }
 }
