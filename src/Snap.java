@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Snap extends CardGame {
     private Player player1;
     private Player player2;
-    private Player currentPlayer;
     private Card previousCard;
 
     public Snap(String name, String p1Name, String p2Name) {
@@ -11,7 +10,6 @@ public class Snap extends CardGame {
         this.previousCard = null;
         this.player1 = new Player(p1Name);
         this.player2 = new Player(p2Name);
-        this.currentPlayer = player1;
     }
 
     public void playSnap() {
@@ -19,19 +17,25 @@ public class Snap extends CardGame {
         boolean playAgain = true;
 
         while (playAgain) {
+            getDeck();
             shuffleDeck();
             previousCard = null;
-            currentPlayer = player1;
+            Player currentPlayer = player1;
 
-            System.out.println("\nLet's play SNAP! \n\nPress Enter to deal a card. \nPlayer 1 goes first:");
+            System.out.println("\nLet's play SNAP! (Press Q to QUIT)");
+            System.out.println("\nPress Enter to deal a card. \nPlayer 1 goes first:");
 
             while (true) {
-                scanner.nextLine();
+                String input = scanner.nextLine().toUpperCase();
+
+                if (input.equals("Q")) {
+                    System.out.println("\nOK BYE!");
+                    System.exit(0);
+                }
 
                 Card currentCard = dealCard();
-
                 if (currentCard == null) {
-                    System.out.println("\nGAME OVER: Nobody wins!");
+                    System.out.println("\nGAME OVER: No Winner!");
                     break;
                 }
 
@@ -47,28 +51,30 @@ public class Snap extends CardGame {
                 currentPlayer = (currentPlayer == player1) ? player2 : player1;
             }
 
-            System.out.println("\nChoose what to do next:");
-            System.out.println("1. Play Again");
-            System.out.println("2. Back to Main Menu"); // change to choose another game when additional game added
-            System.out.println("3. EXIT");
-            System.out.print("\nEnter your choice: ");
+            playAgain = showMenu(scanner);
+        }
+    }
 
-            while (true) {
-                String choice = scanner.nextLine();
-                if (choice.equals("1")) {
-                    playAgain = true;
-                    break;
-                } else if (choice.equals("2")) {
-                    playAgain = false;
+    private boolean showMenu(Scanner scanner) {
+        System.out.println("\nChoose what to do next:");
+        System.out.println("1. Play Again");
+        System.out.println("2. Choose Another Game");
+        System.out.println("3. EXIT");
+        System.out.print("\nEnter your choice: ");
+
+        while (true) {
+            String choice = scanner.nextLine();
+            switch (choice) {
+                case "1":
+                    return true;
+                case "2":
                     System.out.println("\nThanks for playing SNAP!");
-                    break;
-                } else if (choice.equals("3")) {
-                    playAgain = false;
+                    return false;
+                case "3":
                     System.out.println("\nThanks for playing SNAP! BYE!");
                     System.exit(0);
-                } else {
-                    System.out.println("\nPlease enter '1' to PLAY AGAIN, '2' to go BACK TO MAIN MENU or '3' to EXIT:");
-                }
+                default:
+                    System.out.print("Enter a valid choice (1 / 2 / 3): ");
             }
         }
     }

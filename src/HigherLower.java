@@ -13,21 +13,22 @@ public class HigherLower extends CardGame {
         boolean playAgain = true;
 
         while (playAgain) {
+            getDeck();
             shuffleDeck();
             previousCard = dealCard();
 
-            if (previousCard == null) {
-                System.out.println("GAME OVER! YOU ARE THE ULTIMATE CHAMPION!");
-                return;
-            }
-
             System.out.println("\nIn this game, you must guess whether the next card dealt will be HIGHER or LOWER than the previous...");
-            System.out.println("\nLet's play Higher Lower!");
+            System.out.println("\nLet's play Higher Lower! (Press Q to QUIT)");
             System.out.println("\nThe card is: " + previousCard);
 
             while (true) {
                 System.out.print("Enter 'H' for HIGHER, 'L' for LOWER: ");
                 String guess = scanner.nextLine().toUpperCase();
+
+                if (guess.equals("Q")) {
+                    System.out.println("\nOK BYE!");
+                    System.exit(0);
+                }
 
                 if (!guess.equals("H") && !guess.equals("L")) {
                     System.out.println("Please enter 'H' for HIGHER, 'L' for LOWER:");
@@ -49,45 +50,41 @@ public class HigherLower extends CardGame {
                     continue;
                 }
 
-                boolean isCorrect = false;
-
-                if (guess.equals("H")) {
-                    isCorrect = currentCard.getValue().compareTo(previousCard.getValue()) > 0;
-                } else {
-                    isCorrect = currentCard.getValue().compareTo(previousCard.getValue()) < 0;
-                }
+                boolean isCorrect = (guess.equals("H") && currentCard.getValue().compareTo(previousCard.getValue()) > 0) ||
+                        (guess.equals("L") && currentCard.getValue().compareTo(previousCard.getValue()) < 0);
 
                 if (isCorrect) {
                     System.out.println("\nCORRECT!");
                     previousCard = currentCard;
                 } else {
-                    System.out.println("\nWRONG GUESS: GAME OVER!");
+                    System.out.println("\nINCORRECT: GAME OVER!");
                     break;
                 }
             }
+            playAgain = showMenu(scanner);
+        }
+    }
 
-            System.out.println("\nChoose what to do next:");
-            System.out.println("1. Play Again");
-            System.out.println("2. Choose Another Game");
-            System.out.println("3. EXIT");
-            System.out.print("\nEnter your choice: ");
+    private boolean showMenu(Scanner scanner) {
+        System.out.println("\nChoose what to do next:");
+        System.out.println("1. Play Again");
+        System.out.println("2. Choose Another Game");
+        System.out.println("3. EXIT");
+        System.out.print("\nEnter your choice: ");
 
-            while (true) {
-                String choice = scanner.nextLine();
-                if (choice.equals("1")) {
-                    playAgain = true;
-                    break;
-                } else if (choice.equals("2")) {
-                    playAgain = false;
+        while (true) {
+            String choice = scanner.nextLine();
+            switch (choice) {
+                case "1":
+                    return true;
+                case "2":
                     System.out.println("\nThanks for playing HIGHER LOWER!");
-                    break;
-                } else if (choice.equals("3")) {
-                    playAgain = false;
+                    return false;
+                case "3":
                     System.out.println("\nThanks for playing HIGHER LOWER! BYE!");
                     System.exit(0);
-                } else {
-                    System.out.println("\nPlease enter '1' to PLAY AGAIN, '2' to CHOOSE ANOTHER GAME or '3' to EXIT:");
-                }
+                default:
+                    System.out.print("Enter a valid choice (1 / 2 / 3): ");
             }
         }
     }
