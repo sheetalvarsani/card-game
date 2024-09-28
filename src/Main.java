@@ -8,7 +8,8 @@ public class Main {
         while (gameRunning) {
             System.out.println("\nWelcome to Card Game! Choose a GAME below:");
             System.out.println("1. Play SNAP");
-            System.out.println("2. EXIT");
+            System.out.println("2. Play HIGHER LOWER");
+            System.out.println("3. EXIT");
             System.out.print("\nEnter your choice: ");
 
             String choice = scanner.nextLine();
@@ -20,12 +21,17 @@ public class Main {
                     break;
 
                 case "2":
+                    HigherLower higherLowerGame = new HigherLower("Higher Lower");
+                    higherLowerGame.playHigherLower();
+                    break;
+
+                case "3":
                     System.out.println("\nThanks for playing! Goodbye!");
                     gameRunning = false;
                     break;
 
                 default:
-                    System.out.println("Please enter '1' to PLAY SNAP or '2' to EXIT.");
+                    System.out.println("Please enter '1' to play SNAP, '2' to play HIGHER LOWER or '3' to EXIT.");
                     break;
             }
         }

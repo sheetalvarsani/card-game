@@ -6,7 +6,6 @@ public class CardGame {
     private final ArrayList<Card> deckOfCards;
     private final String name;
 
-    // Constructor
     public CardGame(String name) {
         this.name = name;
         this.deckOfCards = new ArrayList<>();
@@ -21,12 +20,6 @@ public class CardGame {
             }
         }
     }
-
-//    public void displayDeck() {
-//        for (Card card : deckOfCards) {
-//            System.out.println(card);
-//        }
-//    }
 
     public String getName() {
         return name;
