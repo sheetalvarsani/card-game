@@ -44,11 +44,11 @@ public class Snap extends CardGame {
                 if (previousCard != null && currentCard.getSymbol().equals(previousCard.getSymbol())) {
                     System.out.println("\n" + currentPlayer.getName() + " Type 'SNAP' within 2 seconds to WIN!");
 
-                    Thread timerThread = new Thread (() -> {
+                    Thread timerThread = new Thread(() -> {
                         try {
                             Thread.sleep(2000);
                             System.out.println("\nTIME'S UP!");
-                        } catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             System.out.println("\nSNAP DECLARED!");
                         }
                     });

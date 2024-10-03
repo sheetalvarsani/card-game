@@ -32,7 +32,7 @@ public class Main {
                 yield true;
             }
             case "3" -> {
-                System.out.println("\nThanks for playing! Goodbye!");
+                System.out.println("\nThanks for playing! BYE!");
                 yield false;
             }
             default -> {
